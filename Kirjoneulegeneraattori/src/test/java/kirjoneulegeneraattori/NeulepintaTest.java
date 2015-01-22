@@ -13,33 +13,23 @@ import static org.junit.Assert.*;
 
 public class NeulepintaTest {
     
+    Neulepinta pinta;
+    
     public NeulepintaTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+ 
     @Before
     public void setUp() {
+        pinta=new Neulepinta(malli,3,4);
     }
     
-    @After
-    public void tearDown() {
-    }
+  
 
    
     @Test
     public void testTulostaPinta() {
-        System.out.println("tulostaPinta");
-        Neulepinta instance = null;
-        instance.tulostaPinta();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
     
 }

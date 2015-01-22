@@ -16,18 +16,21 @@ public class Pohja {
             if(korkeus>100){
         
          System.out.println("Valitse korkeus väliltä 1-100.");
-       
+         return;
+       //Komento metodin lopettamiselle?
      } 
       else if(korkeus<1){
           System.out.println("Valitse korkeus väliltä 1-100.");
+          return;
       }
            else if(leveys>100){
         
          System.out.println("Valitse leveys väliltä 1-100.");
-       
+       return;
      } 
       else if(leveys<1){
           System.out.println("Valitse leveys väliltä 1-100.");
+          return;
       }
       else{
         this.korkeus=korkeus;

@@ -12,15 +12,18 @@ public class Neulepinta {
         if (korkeus > 10) {
 
             System.out.println("Valitse korkeus väliltä 1-10.");
-
+             return;
         } else if (korkeus < 1) {
             System.out.println("Valitse korkeus väliltä 1-10.");
+            return;
         } else if (leveys > 10) {
 
             System.out.println("Valitse leveys väliltä 1-10.");
+            return;
 
         } else if (leveys < 1) {
             System.out.println("Valitse leveys väliltä 1-10.");
+            return;
         } else {
             int malliKorkeus = malli.Korkeus();
             int malliLeveys = malli.Leveys();

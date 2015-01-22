@@ -2,104 +2,84 @@
 
 package kirjoneulegeneraattori;
 
+import java.awt.Color;
+import java.util.ArrayList;
 import kirjoneulegeneraattori.Malli;
 import kirjoneulegeneraattori.Ruutu;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 public class MalliTest {
+    Malli malli;
     
     public MalliTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+ 
     
     @Before
     public void setUp() {
+        ArrayList<Color> varit=ArrayList<Color>();
+        varit.add(Color.WHITE);
+        varit.add(Color.BLUE);
+        varit.add(Color.BLACK);
+        malli=new Malli(7,9,varit);
     }
-    
-    @After
-    public void tearDown() {
-    }
+
 
     
     @Test
-    public void testNimi() {
-        System.out.println("nimi");
-        Malli instance = null;
-        String expResult = "";
-        String result = instance.nimi();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testDefaultNimi() {
+        assertEquals(malli.nimi(),"malli");
+    
     }
 
  
     @Test
     public void testVaihdaNimi() {
-        System.out.println("vaihdaNimi");
-        Malli instance = null;
-        instance.vaihdaNimi();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        malli.vaihdaNimi("aaa");
+        assertEquals(malli.nimi(),"aaa");
+       
     }
 
     
     @Test
     public void testVaihdaVari() {
-        System.out.println("vaihdaVari");
-        Malli instance = null;
-        instance.vaihdaVari();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+   
     }
 
     
     @Test
     public void testKorkeus() {
-        System.out.println("Korkeus");
-        Malli instance = null;
-        int expResult = 0;
-        int result = instance.Korkeus();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       assertEquals(malli.Korkeus(),7);
     }
 
   
     @Test
     public void testLeveys() {
-        System.out.println("Leveys");
-        Malli instance = null;
-        int expResult = 0;
-        int result = instance.Leveys();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(malli.Leveys(),9);
     }
 
     @Test
     public void testHae() {
-        System.out.println("hae");
-        int n = 0;
-        int m = 0;
-        Malli instance = null;
-        Ruutu expResult = null;
-        Ruutu result = instance.hae(n, m);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+   
+    }
+    
+    @Test 
+    public void testLisaaVari(){
+        varit.add(Color.RED);
+       
+    }
+    @Test 
+    public void testPoistaVari(){
+        varit.remove(Color.WHITE);
+        
     }
     
 }

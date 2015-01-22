@@ -61,11 +61,32 @@ public class PohjaTest {
     @Test
     public void testHaeSopivalla() {
       pohja.hae(2, 3);
+      //Mikä käsky???
     }
     @Test
     public void testHaeIsolla1(){
         pohja.hae(1, 11);
     }
     @Test
+    public void testHaeIsolla2(){
+        pohja.hae(12, 3);
+        
+    }
     
+    @Test 
+    public void luoSopivaKorkeus(){
+        assertEquals(pohja.Korkeus(),5);
+    }
+     @Test 
+    public void luoSopivaLeveys(){
+        assertEquals(pohja.Leveys(),7);
+    }
+     @Test 
+    public void LuoLiianIso1(){
+        pohja= new Pohja(1020,16);
+    }
+      @Test 
+    public void LuoLiianIso2(){
+        pohja= new Pohja(20,160);
+    }
 }

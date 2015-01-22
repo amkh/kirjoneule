@@ -26,14 +26,24 @@ public class Malli {
     public String nimi(){
         return nimi;
     }
-    public void vaihdaNimi(){
+    public void vaihdaNimi(String nimi){
      //   System.out.println("Anna uusi nimi: ");
     //    this.nimi=lukija.nextLine();
     //    System.out.println("Uusi nimi on:" + nimi);
+        
+        this.nimi=nimi;
    }
-    public void vaihdaVari(){
+    public void lisaaVari(Color vari){
+        this.varit.add(vari);
        
     }
+    public void poistaVari(Color vari){
+        if(this.varit.contains(vari)){
+        this.varit.remove(vari);
+        }
+        else return;
+    }
+    
     public int Korkeus(){
         return pohja.Korkeus();
     }

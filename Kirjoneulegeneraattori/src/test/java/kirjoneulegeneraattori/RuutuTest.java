@@ -1,4 +1,4 @@
-/
+
 package kirjoneulegeneraattori;
 
 import kirjoneulegeneraattori.Ruutu;
