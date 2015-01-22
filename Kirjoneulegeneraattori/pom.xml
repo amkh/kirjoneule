@@ -35,8 +35,8 @@
     <configuration>
         <instrumentation>
             <includes>
-                <include>kirjoneulegeneraattori.logiikka/*.class</include>
-                <include>kirjoneulegeneraattori.tekoaly/*.class</include>
+                <include>kirjoneulegeneraattori/*.class</include>
+                
             </includes>
         </instrumentation>
     </configuration>
@@ -48,12 +48,12 @@
     <version>0.30</version>
     <configuration>
         <targetClasses>
-            <param>kirjoneulegeneraattori.logiikka.*</param>
-            <param>kirjoneulegeneraattori.tekoaly.*</param>
+            <param>kirjoneulegeneraattori.*</param>
+           
         </targetClasses>
         <targetTests>
-            <param>kirjoneulegeneraattori.logiikka.*</param>
-            <param>kirjoneulegeneraattori.tekoaly.*</param>
+            <param>kirjoneulegeneraattori.*</param>
+            
         </targetTests>
     </configuration>
 </plugin>

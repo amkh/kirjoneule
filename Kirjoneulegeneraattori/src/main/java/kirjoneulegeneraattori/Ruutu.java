@@ -1,6 +1,6 @@
 
 
-package com.mycompany.kirjoneulegeneraattori;
+package kirjoneulegeneraattori;
 
 import java.awt.Color;
 import java.util.Scanner;

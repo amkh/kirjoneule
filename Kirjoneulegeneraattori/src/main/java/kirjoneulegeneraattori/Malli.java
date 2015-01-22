@@ -1,6 +1,6 @@
 
 
-package com.mycompany.kirjoneulegeneraattori;
+package kirjoneulegeneraattori;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Malli {
     //Malli koostuu ruudukosta ja nimestä
+    //Scanner-jutut voi ohittaa; siirretään käyttikseen
     
     private String nimi;
     private Pohja pohja;
@@ -31,7 +32,16 @@ public class Malli {
     //    System.out.println("Uusi nimi on:" + nimi);
    }
     public void vaihdaVari(){
-        ???
+       
+    }
+    public int Korkeus(){
+        return pohja.Korkeus();
+    }
+    public int Leveys(){
+        return pohja.Leveys();
+    }
+    public Ruutu hae(int n, int m){
+        return pohja.hae(n,m);
     }
     
 //    public void valitseKoko(){
