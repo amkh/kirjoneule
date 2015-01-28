@@ -10,12 +10,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class Test {
+public class HakemistoTest {
     Hakemisto hakemisto;
     
     public HakemistoTest() {
-       
-    }
+       }
     
    
     
@@ -24,10 +23,7 @@ public class Test {
         
      hakemisto=new Hakemisto();
     }
-    @After
-    public void tearDown() {
-    }
-
+   
  
     
 }

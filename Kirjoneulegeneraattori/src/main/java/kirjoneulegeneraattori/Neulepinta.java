@@ -7,23 +7,12 @@ public class Neulepinta {
     private int leveys;
     private Pohja pohja;
 
-    public Neulepinta(Malli malli, int korkeus, int leveys) {
+    public Neulepinta(Malli malli, int korkeus, int leveys) throws Exception {
         
-        if (korkeus > 10) {
+        if (korkeus > 10 || korkeus<1 || leveys>10 || leveys<1) {
 
-            System.out.println("Valitse korkeus väliltä 1-10.");
-             return;
-        } else if (korkeus < 1) {
-            System.out.println("Valitse korkeus väliltä 1-10.");
-            return;
-        } else if (leveys > 10) {
-
-            System.out.println("Valitse leveys väliltä 1-10.");
-            return;
-
-        } else if (leveys < 1) {
-            System.out.println("Valitse leveys väliltä 1-10.");
-            return;
+            throw new Exception("Valitse korkeus väliltä 1-10.");
+          
         } else {
             int malliKorkeus = malli.Korkeus();
             int malliLeveys = malli.Leveys();

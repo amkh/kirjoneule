@@ -25,16 +25,16 @@ public class RuutuTest {
 
     @Test
     public void luoOikein(){
-        assertEquals(ruutu.vari(),Color.WHITE);
+        assertEquals(Color.WHITE,ruutu.vari());
     }
     
     
     @Test
     public void testvaihdaVari() {
         ruutu.vaihdaVari(Color.GREEN);
-        assertEquals(ruutu.vari(),Color.GREEN);
+        assertEquals(Color.GREEN,ruutu.vari());
     }
-    
+ 
    
 
   

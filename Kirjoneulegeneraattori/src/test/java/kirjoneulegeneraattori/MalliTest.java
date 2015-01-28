@@ -3,7 +3,9 @@
 package kirjoneulegeneraattori;
 
 import java.awt.Color;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import kirjoneulegeneraattori.Malli;
 import kirjoneulegeneraattori.Ruutu;
 import org.junit.After;
@@ -16,6 +18,7 @@ import org.junit.Test;
 
 public class MalliTest {
     Malli malli;
+    Set<Color> varit;
     
     public MalliTest() {
     }
@@ -24,7 +27,7 @@ public class MalliTest {
     
     @Before
     public void setUp() {
-        ArrayList<Color> varit=ArrayList<Color>();
+        varit= new HashSet<Color>();
         varit.add(Color.WHITE);
         varit.add(Color.BLUE);
         varit.add(Color.BLACK);
@@ -35,7 +38,7 @@ public class MalliTest {
     
     @Test
     public void testDefaultNimi() {
-        assertEquals(malli.nimi(),"malli");
+        assertEquals("malli",malli.nimi());
     
     }
 
@@ -43,27 +46,20 @@ public class MalliTest {
     @Test
     public void testVaihdaNimi() {
         malli.vaihdaNimi("aaa");
-        assertEquals(malli.nimi(),"aaa");
+        assertEquals("aaa",malli.nimi());
        
     }
 
     
     @Test
-    public void testVaihdaVari() {
-        
-   
-    }
-
-    
-    @Test
     public void testKorkeus() {
-       assertEquals(malli.Korkeus(),7);
+       assertEquals(7,malli.Korkeus());
     }
 
   
     @Test
     public void testLeveys() {
-        assertEquals(malli.Leveys(),9);
+        assertEquals(9,malli.Leveys());
     }
 
     @Test
@@ -73,13 +69,47 @@ public class MalliTest {
     
     @Test 
     public void testLisaaVari(){
-        varit.add(Color.RED);
+      Color vari=Color.RED;
+      malli.lisaaVari(vari);
+      assertTrue(malli.haeVari(vari));
        
     }
     @Test 
     public void testPoistaVari(){
-        varit.remove(Color.WHITE);
-        
+      Color vari=Color.BLUE;
+      malli.poistaVari(vari);
+      assertFalse(malli.haeVari(vari));
     }
     
+    @Test
+    public void testVaritaRuutu(){
+        Color vari=Color.BLACK;
+        malli.varitaRuutu(1, 1, vari);
+        assertEquals(Color.BLACK,malli.hae(1, 1).vari());
+    }
+    @Test
+    public void testVaritaRuutuVaaralla(){
+        Color vari=Color.MAGENTA;
+        malli.varitaRuutu(1, 1, vari);
+        assertEquals(Color.WHITE,malli.hae(1, 1).vari());
+    }
+           
+    @Test
+    public void testVaihdaVari(){
+        Color vari1=Color.BLACK;
+        Color vari2=Color.BLUE;
+        malli.varitaRuutu(2, 4, vari1);
+        malli.varitaRuutu(2, 4, vari2);
+        assertEquals(Color.BLUE,malli.hae(2, 4).vari());
+        
+    }
+    @Test
+    public void testVaihdaVariVaarin(){
+        Color vari1=Color.BLACK;
+        Color vari2=Color.MAGENTA;
+        malli.varitaRuutu(1, 1, vari1);
+        malli.varitaRuutu(1, 1, vari2);
+        assertEquals(Color.BLACK,malli.hae(1, 1).vari());
+        
+    }
 }

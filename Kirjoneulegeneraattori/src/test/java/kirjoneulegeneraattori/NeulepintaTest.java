@@ -21,7 +21,7 @@ public class NeulepintaTest {
  
     @Before
     public void setUp() {
-        pinta=new Neulepinta(malli,3,4);
+       // pinta=new Neulepinta(malli,3,4);
     }
     
   
