@@ -134,10 +134,5 @@ public class Malli {
         }
     }
 
-//    public void valitseKoko(){
-//        System.out.println("Valitse mallin koko.");
-//        System.out.println("Leveys: ");
-//        System.out.println("Korkeus: ");
-//        
-//    }
+
 }

@@ -33,27 +33,39 @@ public class NeulepintaTest {
         malli.varitaRuutu(1, 0, Color.BLUE);
         malli.varitaRuutu(1, 1, Color.WHITE);
         malli.varitaRuutu(1, 2, Color.BLUE);
+
         try {
             pinta = new Neulepinta(malli, 3, 4);
 
         } catch (Exception ex) {
 
         }
+
     }
-    /*
+
     @Test
-    public void testKorkeus(){
-        assertEquals(6,pinta.korkeus());
+    public void testKorkeus() {
+        assertEquals(6, pinta.korkeus());
     }
+
     @Test
-    public void testLeveys(){
-        assertEquals(12,pinta.leveys());
+    public void testLeveys() {
+        assertEquals(12, pinta.leveys());
     }
-    
+
     @Test
-    public void testLuoOikein(){
-        assertEquals(Color.BLACK,pinta.hae(0, 1).vari());
-        assertEquals(Color.BLACK,pinta.hae(0, 7).vari());
+    public void testLuoOikein() {
+        assertEquals(Color.BLACK, pinta.hae(0, 1).vari());
+        assertEquals(Color.BLACK, pinta.hae(0, 7).vari());
+        assertEquals(Color.BLACK, pinta.hae(2, 7).vari());
+        assertEquals(Color.BLACK, pinta.hae(4, 4).vari());
+        assertEquals(Color.BLACK, pinta.hae(4, 10).vari());
+        assertEquals(Color.WHITE, pinta.hae(0, 0).vari());
+        assertEquals(Color.WHITE, pinta.hae(2, 9).vari());
+        assertEquals(Color.WHITE, pinta.hae(5, 1).vari());
+        assertEquals(Color.BLUE, pinta.hae(1, 2).vari());
+        assertEquals(Color.BLUE, pinta.hae(3, 6).vari());
+        assertEquals(Color.BLUE, pinta.hae(5, 11).vari());
     }
-    */
+
 }

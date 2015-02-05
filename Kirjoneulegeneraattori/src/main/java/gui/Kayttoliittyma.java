@@ -2,9 +2,11 @@ package gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -23,8 +25,19 @@ public class Kayttoliittyma {
         frame.setVisible(true);
     }
 
-    public void aloita() {
+    private void luoKomponentit(Container container) {
+       // GridLayout layout = new GridLayout(1, 3);
+        //container.setLayout(layout);
+        //container.add(luoMalli(), GridLayout(1,1));
+        //container.add(luoVariTaulukko(), GridLayout(1,3));
 
+    }
+/*
+    public void aloita() {
+        kokoPyynto();
+        variPyynto();
+        JButton okNappi = new JButton("Ok");
+        frame.add(okNappi);
     }
 
     public void kokoPyynto() {
@@ -34,9 +47,22 @@ public class Kayttoliittyma {
         frame.add(korkeus);
         JTextField leveys = new JTextField();
         frame.add(leveys);
-        JButton okNappi = new JButton("Ok");
-        frame.add(okNappi);
 
+    }
+    private JPanel luoVariTaulukko(){
+        JPanel taulukko=new JPanel(new GridLayout(3,1));
+        //taulukko.add(new JButton variN);
+        Vaihda 3 värien lukumääräksi!!
+        
+        
+        return taulukko;
+    }
+    private JPanel luoMalli(){
+        JPanel mallipohja = new JPanel(new GridLayout(2,3));
+        
+        Vaihda 2,3 mallin kooksi!!
+        
+        return mallipohja;
     }
 
     public void variPyynto() {
@@ -44,11 +70,8 @@ public class Kayttoliittyma {
         frame.add(variPyynto);
     }
 
-    private void luoKomponentit(Container container) {
-
-    }
-
     public JFrame haeFrame() {
         return frame;
     }
+*/
 }

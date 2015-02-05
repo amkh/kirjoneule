@@ -21,7 +21,7 @@ public class Pohja {
     public Pohja(int korkeus, int leveys) throws Exception {
         if (korkeus > 100 || korkeus < 1 || leveys > 100 || leveys < 1) {
 
-            throw new Exception("Valitse korkeus väliltä 1-100.");
+            //throw new Exception("Valitse korkeus väliltä 1-100.");
         } else {
             this.korkeus = korkeus;
             this.leveys = leveys;
