@@ -7,9 +7,9 @@ import java.util.Set;
 import javax.swing.JTextField;
 import kirjoneulegeneraattori.Malli;
 
-public class OkNappiKuuntelija  {
+public class OkNappiKuuntelija implements ActionListener {
 
-   /* private Malli malli;
+  private Malli malli;
     private JTextField korkeus;
     private JTextField leveys;
     private Set<Color> varit;
@@ -23,7 +23,11 @@ public class OkNappiKuuntelija  {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Malli malli = new Malli(korkeus.getText(), leveys.getText(), varit.get);
+        Integer korkeus1=Integer.parseInt(korkeus.getText());
+        Integer leveys1=Integer.parseInt(leveys.getText());
+        
+        Malli malli = new Malli(korkeus1, leveys1,varit );
+        
     }
-*/
+
 }

@@ -1,45 +1,71 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridLayout;
+import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import kirjoneulegeneraattori.Malli;
 
 public class Kayttoliittyma {
 
     private JFrame frame;
+    private Set<Color> varit;
+    private int korkeus;
+    private int leveys;
 
-    public Kayttoliittyma() {
-
+    public Kayttoliittyma(Set<Color> varit) {
+        this.varit=varit;
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1500, 1000));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        luoKomponentit(frame.getContentPane());
+        luoKomponentitAlku(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
+        
+        
     }
-
-    private void luoKomponentit(Container container) {
-       // GridLayout layout = new GridLayout(1, 3);
-        //container.setLayout(layout);
-        //container.add(luoMalli(), GridLayout(1,1));
-        //container.add(luoVariTaulukko(), GridLayout(1,3));
-
+    private void luoKomponentitAlku(Container c){
+        
+        JLabel tervehdys=new JLabel("Tervetuloa käyttämään kirjoneulegeneraattoria!");
+        c.add(tervehdys);
+        
+        
+        
     }
-/*
-    public void aloita() {
+      public void LuoKomponentitKyselyt(Container c) {
         kokoPyynto();
         variPyynto();
         JButton okNappi = new JButton("Ok");
-        frame.add(okNappi);
+        OkNappiKuuntelija k=new OkNappiKuuntelija();
+        okNappi.addActionListener(k);
+        c.add(okNappi);
+    
+      
     }
 
+
+    private void luoKomponentitMallinTeko(Container container) {
+        GridLayout layout = new GridLayout(1, 2);
+        container.setLayout(layout);
+        
+        container.add(new JPanel(),new GridLayout(1,1));
+        container.add(new JPanel(),new GridLayout(1,2));
+        
+       container.add(luoVariTaulukko(varit));
+       container.add(luoPohja(korkeus,leveys));
+
+    }
+
+  
     public void kokoPyynto() {
         JLabel kokoPyynto = new JLabel("Valitse mallin koko:");
         frame.add(kokoPyynto);
@@ -49,20 +75,29 @@ public class Kayttoliittyma {
         frame.add(leveys);
 
     }
-    private JPanel luoVariTaulukko(){
-        JPanel taulukko=new JPanel(new GridLayout(3,1));
-        //taulukko.add(new JButton variN);
-        Vaihda 3 värien lukumääräksi!!
-        
+    
+    private JPanel luoVariTaulukko(Set<Color> varit){
+      
+        int koko=varit.size();
+        Color[] varit2 = varit.toArray(new Color[koko]);
+        JPanel taulukko=new JPanel(new GridLayout(koko,1));
+    for (int i=0;i<koko;i++){
+        JButton nappi=new JButton();
+         nappi.setBackground(varit2[i]);
+        taulukko.add(nappi);
+    }
+       
         
         return taulukko;
+        
     }
-    private JPanel luoMalli(){
-        JPanel mallipohja = new JPanel(new GridLayout(2,3));
+    
+    private JPanel luoPohja(int korkeus, int leveys){
         
-        Vaihda 2,3 mallin kooksi!!
         
-        return mallipohja;
+        
+        JPanel pohja = new JPanel(new GridLayout(korkeus,leveys));
+       return pohja;
     }
 
     public void variPyynto() {
@@ -73,5 +108,8 @@ public class Kayttoliittyma {
     public JFrame haeFrame() {
         return frame;
     }
-*/
+    public void paivita(){
+        
+    }
+
 }
