@@ -8,3 +8,5 @@
 3.2.  Käyttöliittymää ja kommentointeja 2h
 4.2.  Käyttöliittymää ja testausta 2h
 5.2.  Käyttöliittymää ja testausta 4h
+11.2. Sekvenssikaavioiden piirtelyä 1h
+12.2. Käyttöliittymää 2h
