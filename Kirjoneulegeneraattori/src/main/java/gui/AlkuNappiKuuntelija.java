@@ -8,6 +8,7 @@ import javax.swing.WindowConstants;
 /*
  Tämä nappikuuntelija vastaa ohjelman etusivun toiminnasta.
  "Uusi malli" -nappia painettaessa aukeaa seuraavaksi mallin koon ja värien kyselyikkuna.
+ "Hakemisto"-napista aukeaa hakemistosivu.
  */
 
 public class AlkuNappiKuuntelija implements ActionListener {
@@ -24,7 +25,7 @@ public class AlkuNappiKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+     if(ae.getActionCommand().equals("Uusi malli")){
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(400, 300));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -32,7 +33,16 @@ public class AlkuNappiKuuntelija implements ActionListener {
         kayttis.LuoKomponentitKyselyt(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
+    }
+     if(ae.getActionCommand().equals("Hakemisto")){
+          frame = new JFrame("Kirjoneulegeneraattori");
+        frame.setPreferredSize(new Dimension(400, 300));
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        kayttis.LuoKomponentitHakemisto(frame.getContentPane());
+        frame.pack();
+        frame.setVisible(true);
+     }
     }
 
 }

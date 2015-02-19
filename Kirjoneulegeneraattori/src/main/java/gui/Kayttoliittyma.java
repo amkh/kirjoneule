@@ -84,7 +84,7 @@ public class Kayttoliittyma {
     public void LuoKomponentitHakemisto(Container c) {
         c.setLayout(new BorderLayout());
 
-        hakemistopaneeli = new HakemistoPaneeli();
+        hakemistopaneeli = new HakemistoPaneeli(this);
         JButton okNappi = new JButton("Ok");
         HakemistoPaneeliKuuntelija h = new HakemistoPaneeliKuuntelija(this, frame);
 
