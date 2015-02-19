@@ -12,4 +12,4 @@
 12.2. Käyttöliittymää 2h
 17.2. Käyttöliittymää 2h
 18.2. Käyttöliittymää 2h
-19.2. Käyttöliittymää ja sekvenssikaavioita 4h
+19.2. Käyttöliittymää ja sekvenssikaavioita 5h
