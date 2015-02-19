@@ -10,3 +10,6 @@
 5.2.  Käyttöliittymää ja testausta 4h
 11.2. Sekvenssikaavioiden piirtelyä 1h
 12.2. Käyttöliittymää 2h
+17.2. Käyttöliittymää 2h
+18.2. Käyttöliittymää 2h
+19.2. Käyttöliittymää ja sekvenssikaavioita 4h
