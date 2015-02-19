@@ -13,7 +13,7 @@ public class Malli {
 
     private String nimi;
     private Pohja pohja;
-    private Set<Color> varit;
+    public Set<Color> varit;
     Scanner lukija = new Scanner(System.in);
 
     /**

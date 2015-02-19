@@ -48,13 +48,30 @@ public class Hakemisto {
      *
      * @param malli Poistettava malli
      */
-
     public void poistaMalli(Malli malli) {
 
         if (hakemisto.contains(malli)) {
             hakemisto.remove(malli);
         }
 
+    }
+    /*
+     Metodi palauttaa hakemiston koon.
+     */
+
+    public int koko() {
+        return hakemisto.size();
+
+    }
+
+    /**
+     * Metodi hakee hakemistosta indeksin avulla.
+     *
+     * @param i indeksi
+     * @return malli
+     */
+    public Malli haeIndeksilla(int i) {
+        return hakemisto.get(i);
     }
 
 }

@@ -9,13 +9,15 @@ import java.awt.Frame;
 import java.awt.GridLayout;
 import java.util.Set;
 import javax.swing.JButton;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import kirjoneulegeneraattori.Hakemisto;
+import kirjoneulegeneraattori.Malli;
+import kirjoneulegeneraattori.Neulepinta;
 
 public class Kayttoliittyma {
 
@@ -28,6 +30,10 @@ public class Kayttoliittyma {
     public VariLuokka variluokka;
     public Pohjanpiirto piirto;
 
+    public Hakemisto hakemisto;
+    public HakemistoPaneeli hakemistopaneeli;
+    public Neulepohjanpiirto pinta;
+
     public int korkeusInt;
     public int leveysInt;
 
@@ -35,6 +41,8 @@ public class Kayttoliittyma {
     }
 
     public void run() {
+        hakemisto = new Hakemisto();
+
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1000, 500));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -44,74 +52,133 @@ public class Kayttoliittyma {
         frame.setVisible(true);
 
     }
+    /*
+     Metodi luo ohjelman aloitussivun.
+     */
 
     private void luoKomponentitAlku(Container c) {
         c.setLayout(new BorderLayout());
 
         JLabel tervehdys = new JLabel("Tervetuloa käyttämään kirjoneulegeneraattoria!");
         tervehdys.setFont(new Font("Serif", Font.PLAIN, 30));
+        tervehdys.setHorizontalAlignment(SwingConstants.CENTER);
+
         JButton uusimalli = new JButton("Uusi malli");
-        //JButton hakemisto=new JButton("Hakemisto");
         uusimalli.addActionListener(new AlkuNappiKuuntelija(this, frame));
         uusimalli.setBackground(Color.white);
-        //hakemisto.addActionListener(new alkuNappiKuuntelija());
-        tervehdys.setHorizontalAlignment(SwingConstants.CENTER);
+
+        JButton hakemisto = new JButton("Hakemisto");
+        hakemisto.addActionListener(new HakemistoNappiKuuntelija(this, frame));
+        hakemisto.setBackground(Color.white);
+
         c.add(tervehdys);
         c.add(uusimalli, BorderLayout.WEST);
+        c.add(hakemisto, BorderLayout.EAST);
         c.setBackground(Color.PINK);
-        //c.add(hakemisto, BorderLayout.EAST);
 
     }
+    /*
+     Metodi luo hakemistosivun.
+     */
+
+    public void LuoKomponentitHakemisto(Container c) {
+        c.setLayout(new BorderLayout());
+
+        hakemistopaneeli = new HakemistoPaneeli();
+        JButton okNappi = new JButton("Ok");
+        HakemistoPaneeliKuuntelija h = new HakemistoPaneeliKuuntelija(this, frame);
+
+        okNappi.addActionListener(h);
+        c.add(hakemistopaneeli, BorderLayout.CENTER);
+        c.setBackground(Color.PINK);
+    }
+    /*
+     Metodi luo mallin luomiseen vaadittavien tietojen syöttösivun. Mallin luomiseen vaaditaan korkeus, leveys ja värit.
+     */
 
     public void LuoKomponentitKyselyt(Container c) {
         c.setLayout(new BorderLayout());
-        c.add(kokoPyynto(), BorderLayout.WEST);
+
         variluokka = new VariLuokka();
 
-        c.add(variluokka, BorderLayout.EAST);
         JButton okNappi = new JButton("Ok");
-        OkNappiKuuntelija k = new OkNappiKuuntelija();
+        OkNappiKuuntelija k = new OkNappiKuuntelija(this, frame);
         okNappi.addActionListener(k);
 
+        c.add(kokoPyynto(), BorderLayout.WEST);
+        c.add(variluokka, BorderLayout.EAST);
         c.add(okNappi, BorderLayout.SOUTH);
         c.setBackground(Color.PINK);
 
     }
+    /*
+     Metodi luo varsinaisen mallinmuokkaamissivun.
+     */
 
-    public void luoKomponentitMallinTeko(Container c) {
+    public void luoKomponentitMallinTeko(Container c, Malli malli) {
 
         c.setLayout(new BorderLayout());
 
-        JButton tallenna = new JButton("Tallenna");
-        TallennaNappiKuuntelija l = new TallennaNappiKuuntelija(this, frame);
-        tallenna.addActionListener(l);
-
-        c.add(luoVariTaulukko(varit), BorderLayout.EAST);
-        c.add(luoPohja(korkeusInt, leveysInt), BorderLayout.WEST);
-        c.add(tallenna, BorderLayout.SOUTH);
-        c.setBackground(Color.PINK);
-    }
-
-    public void luoKomponentitTallennus(Container c) {
-        c.setLayout(new BorderLayout());
+        JPanel j = new JPanel();
+        j.setLayout(new GridLayout(0, 1));
 
         JLabel nimipyynto = new JLabel("Mallin nimi:");
-        c.add(nimipyynto);
+        j.add(nimipyynto);
         nimi = new JTextField();
-        c.add(nimi);
+        j.add(nimi);
 
-        JButton okNappi = new JButton("Ok");
-        NimiOkNappiKuuntelija m = new NimiOkNappiKuuntelija(this, frame, malli);
-        okNappi.addActionListener(m);
+        JButton tallennaNappi = new JButton("Tallenna");
+        TallennaNappiKuuntelija t = new TallennaNappiKuuntelija(this, frame, malli);
+        tallennaNappi.addActionListener(t);
+        j.add(tallennaNappi);
+
+        JButton kokeile = new JButton("Kokeile");
+        KokeileNappiKuuntelija k = new KokeileNappiKuuntelija(this, frame, malli);
+        kokeile.addActionListener(k);
+
+        piirto = new Pohjanpiirto(malli);
+        piirto.addMouseListener(new Taulukkokuuntelija(this, frame, malli));
+        c.add(luoVariTaulukko(malli.varit), BorderLayout.EAST);
+        c.add(piirto, BorderLayout.CENTER);
+        c.add(j, BorderLayout.SOUTH);
+        c.add(kokeile, BorderLayout.NORTH);
         c.setBackground(Color.PINK);
 
+        paivita();
+    }
+    /*
+     Metodi luo sivun, jolla kysytään halutun neulepinnan kokoa.
+     */
+
+    public void luoKomponentitPinnanKysely(Container c, Malli malli) {
+        c.setLayout(new BorderLayout());
+
+        JButton okNappi = new JButton("Ok");
+        PinnanKyselyNappiKuuntelija p = new PinnanKyselyNappiKuuntelija(this, frame, malli);
+        okNappi.addActionListener(p);
+        c.add(kokoPyynto(), BorderLayout.CENTER);
+        c.add(okNappi, BorderLayout.SOUTH);
+
+    }
+    /*
+     Metodi luo ikkunan, jossa neulepinta on näkyvissä ruudukkona.
+     */
+
+    public void luoKomponentitNeulepinta(Container c, Neulepinta neulepinta) {
+        c.setLayout(new BorderLayout());
+
+        pinta = new Neulepohjanpiirto(neulepinta);
+        c.add(pinta, BorderLayout.CENTER);
     }
 
+    /*
+     Paneelissa on tekstikentät, joihin mallin korkeus ja leveys pitäisi syöttää.
+     */
     private JPanel kokoPyynto() {
         JPanel vasen = new JPanel();
         vasen.setLayout(new GridLayout(0, 1));
 
-        JLabel pyynto = new JLabel("Valitse mallin koko:");
+        JLabel pyynto = new JLabel("Valitse koko:");
         vasen.add(pyynto);
         JLabel kpyynto = new JLabel("Korkeus:");
         vasen.add(kpyynto);
@@ -126,15 +193,22 @@ public class Kayttoliittyma {
         return vasen;
 
     }
+    /*
+     Paneelissa on nappeina mallin värit.
+     */
 
     private JPanel luoVariTaulukko(Set<Color> varit) {
-
+        System.out.println("Värejä: " + varit.size());
         int koko = varit.size();
         Color[] varit2 = varit.toArray(new Color[koko]);
-        JPanel taulukko = new JPanel(new GridLayout(koko, 1));
+        JPanel taulukko = new JPanel(new GridLayout(0, 1));
         for (int i = 0; i < koko; i++) {
             JButton nappi = new JButton();
+            nappi.setText(varit2[i].toString());
+
+            nappi.setForeground(varit2[i]);
             nappi.setBackground(varit2[i]);
+            nappi.addActionListener(new VariNappiKuuntelija(this, frame));
             taulukko.add(nappi);
         }
 
@@ -142,17 +216,16 @@ public class Kayttoliittyma {
 
     }
 
-    private JPanel luoPohja(int korkeus, int leveys) {
-
-        JPanel pohja = new JPanel(new GridLayout(korkeus, leveys));
-        return pohja;
-    }
-
     public JFrame haeFrame() {
         return frame;
     }
 
+    public void variklikkaus(Color vari) {
+
+    }
+
     public void paivita() {
+
         piirto.repaint();
 
     }

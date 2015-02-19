@@ -6,29 +6,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import kirjoneulegeneraattori.Hakemisto;
+import kirjoneulegeneraattori.Malli;
 
 
+/*
+Tämä nappikuuntelija vastaa tallennuksen suorittamisesta ja valmiin mallin 
+siirtämisestä hakemistoon muistiin. 
+*/
 public class TallennaNappiKuuntelija implements ActionListener{
     
     private Kayttoliittyma kayttis;
-     
+    public Malli malli;
     private JFrame frame;
     
-    public TallennaNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame){
+    
+    public TallennaNappiKuuntelija(Kayttoliittyma kayttis,  JFrame frame, Malli malli){
         this.kayttis = kayttis;
         this.frame = frame;
+        this.malli=malli;
+       
+        
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-
-        frame = new JFrame("Kirjoneulegeneraattori");
-        frame.setPreferredSize(new Dimension(1000, 500));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        kayttis.luoKomponentitTallennus(frame.getContentPane());
-        frame.pack();
-        frame.setVisible(true);
+        
+        malli.vaihdaNimi(kayttis.nimi.getText());
+        kayttis.hakemisto.lisaaMalli(malli);
+        
+        
 
         
     }

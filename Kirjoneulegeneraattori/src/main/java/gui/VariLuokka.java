@@ -7,6 +7,9 @@ import java.util.Set;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+/*
+ Tämä luokka toimii värien JChecklistinä, joka myös ottaa talteen malliin halutut värit.
+ */
 
 public class VariLuokka extends JPanel {
 
@@ -62,19 +65,26 @@ public class VariLuokka extends JPanel {
 
         if (punainen.isSelected()) {
             varit.add(Color.RED);
-        } else if (sininen.isSelected()) {
+        }
+        if (sininen.isSelected()) {
             varit.add(Color.BLUE);
-        } else if (vihrea.isSelected()) {
+        }
+        if (vihrea.isSelected()) {
             varit.add(Color.GREEN);
-        } else if (keltainen.isSelected()) {
+        }
+        if (keltainen.isSelected()) {
             varit.add(Color.YELLOW);
-        } else if (harmaa.isSelected()) {
+        }
+        if (harmaa.isSelected()) {
             varit.add(Color.GRAY);
-        } else if (musta.isSelected()) {
+        }
+        if (musta.isSelected()) {
             varit.add(Color.BLACK);
-        } else if (valkoinen.isSelected()) {
+        }
+        if (valkoinen.isSelected()) {
             varit.add(Color.WHITE);
-        } else if (pinkki.isSelected()) {
+        }
+        if (pinkki.isSelected()) {
             varit.add(Color.PINK);
         }
 

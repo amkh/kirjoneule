@@ -69,6 +69,11 @@ public class HakemistoTest {
       hakemisto.poistaMalli(malli1);
       assertNull(hakemisto.haeMalli("Malli1"));
    }
- 
+ @Test
+ public void testKoko(){
+     hakemisto.lisaaMalli(malli1);
+     hakemisto.lisaaMalli(malli2);
+     assertEquals(2,hakemisto.koko());
+ }
     
 }

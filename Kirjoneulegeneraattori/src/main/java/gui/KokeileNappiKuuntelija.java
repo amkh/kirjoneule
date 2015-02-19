@@ -5,20 +5,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-/*
- Tämä nappikuuntelija vastaa ohjelman etusivun toiminnasta.
- "Uusi malli" -nappia painettaessa aukeaa seuraavaksi mallin koon ja värien kyselyikkuna.
- */
+import kirjoneulegeneraattori.Malli;
 
-public class AlkuNappiKuuntelija implements ActionListener {
+/*
+ Tämä kuuntelija avaa sivun, jolla kysytään neulepinnan kokoa.
+ */
+public class KokeileNappiKuuntelija implements ActionListener {
 
     private Kayttoliittyma kayttis;
     private JFrame frame;
+    public Malli malli;
 
-    public AlkuNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame) {
+    public KokeileNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame, Malli malli) {
 
         this.kayttis = kayttis;
         this.frame = frame;
+        this.malli = malli;
 
     }
 
@@ -29,10 +31,9 @@ public class AlkuNappiKuuntelija implements ActionListener {
         frame.setPreferredSize(new Dimension(400, 300));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        kayttis.LuoKomponentitKyselyt(frame.getContentPane());
+        kayttis.luoKomponentitPinnanKysely(frame.getContentPane(), malli);
         frame.pack();
         frame.setVisible(true);
 
     }
-
 }
