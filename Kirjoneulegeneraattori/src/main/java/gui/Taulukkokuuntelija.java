@@ -25,6 +25,8 @@ public class Taulukkokuuntelija implements MouseListener {
         this.kayttis = kayttis;
         this.frame = frame;
         this.malli = malli;
+      
+        
 
     }
 
@@ -32,7 +34,8 @@ public class Taulukkokuuntelija implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-
+        System.out.println("a");
+        this.valittuvari=kayttis.haeValittuvari();
         for (int i = 0; i < malli.Korkeus(); i++) {
             for (int j = 0; j < malli.Leveys(); j++) {
                 if (20 * (j + 1) < x && x < 20 * (j + 2) && 20 * (i + 1) < y && y < 20 * (i + 2)) {
@@ -40,26 +43,28 @@ public class Taulukkokuuntelija implements MouseListener {
                 }
             }
         }
-        throw new UnsupportedOperationException("Not supported yet.");
+        kayttis.paivita();
+        // throw new UnsupportedOperationException("Virhe taulukkokuuntelijan luupissa");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("Virhe mouse pressed.");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("virhe mouse released.");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        int x = e.getX();
+        //throw new UnsupportedOperationException("Virhe mouse enter.");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("Virhe mouse exited.");
     }
 }

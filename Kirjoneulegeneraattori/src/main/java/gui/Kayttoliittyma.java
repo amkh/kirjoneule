@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.GridLayout;
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,13 +37,29 @@ public class Kayttoliittyma {
 
     public int korkeusInt;
     public int leveysInt;
+    public Color valittuvari;
 
     public Kayttoliittyma() {
+
     }
 
     public void run() {
         hakemisto = new Hakemisto();
-
+        ///TESTI
+        Set<Color> varit1 = new HashSet<Color>();
+        varit1.add(Color.BLACK);
+        varit1.add(Color.GRAY);
+        Set<Color> varit2 = new HashSet<Color>();
+        varit2.add(Color.GREEN);
+        varit2.add(Color.RED);
+        varit2.add(Color.YELLOW);
+        Malli malli1 = new Malli(2, 5, varit1);
+        malli1.vaihdaNimi("Malli1");
+        Malli malli2 = new Malli(3, 10, varit2);
+        malli2.vaihdaNimi("Malli2");
+        hakemisto.lisaaMalli(malli2);
+        hakemisto.lisaaMalli(malli1);
+        ////
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1000, 500));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -86,9 +103,13 @@ public class Kayttoliittyma {
 
         hakemistopaneeli = new HakemistoPaneeli(this);
         JButton okNappi = new JButton("Ok");
+        JButton suljeNappi = new JButton("Sulje");
         HakemistoPaneeliKuuntelija h = new HakemistoPaneeliKuuntelija(this, frame);
-
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
         okNappi.addActionListener(h);
+        suljeNappi.addActionListener(s);
+        c.add(okNappi, BorderLayout.SOUTH);
+        //c.add(suljeNappi, BorderLayout.SOUTH);
         c.add(hakemistopaneeli, BorderLayout.CENTER);
         c.setBackground(Color.PINK);
     }
@@ -102,12 +123,15 @@ public class Kayttoliittyma {
         variluokka = new VariLuokka();
 
         JButton okNappi = new JButton("Ok");
+        JButton suljeNappi = new JButton("Sulje");
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
         OkNappiKuuntelija k = new OkNappiKuuntelija(this, frame);
         okNappi.addActionListener(k);
-
+        suljeNappi.addActionListener(s);
         c.add(kokoPyynto(), BorderLayout.WEST);
         c.add(variluokka, BorderLayout.EAST);
         c.add(okNappi, BorderLayout.SOUTH);
+        // c.add(suljeNappi, BorderLayout.SOUTH);
         c.setBackground(Color.PINK);
 
     }
@@ -136,15 +160,19 @@ public class Kayttoliittyma {
         KokeileNappiKuuntelija k = new KokeileNappiKuuntelija(this, frame, malli);
         kokeile.addActionListener(k);
 
+        JButton suljeNappi = new JButton("Sulje");
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
+        suljeNappi.addActionListener(s);
+
         piirto = new Pohjanpiirto(malli);
         piirto.addMouseListener(new Taulukkokuuntelija(this, frame, malli));
         c.add(luoVariTaulukko(malli.varit), BorderLayout.EAST);
         c.add(piirto, BorderLayout.CENTER);
         c.add(j, BorderLayout.SOUTH);
+        // c.add(suljeNappi, BorderLayout.SOUTH);
         c.add(kokeile, BorderLayout.NORTH);
         c.setBackground(Color.PINK);
 
-        paivita();
     }
     /*
      Metodi luo sivun, jolla kysytään halutun neulepinnan kokoa.
@@ -169,6 +197,7 @@ public class Kayttoliittyma {
 
         pinta = new Neulepohjanpiirto(neulepinta);
         c.add(pinta, BorderLayout.CENTER);
+        c.setBackground(Color.PINK);
     }
 
     /*
@@ -198,7 +227,7 @@ public class Kayttoliittyma {
      */
 
     private JPanel luoVariTaulukko(Set<Color> varit) {
-        System.out.println("Värejä: " + varit.size());
+
         int koko = varit.size();
         Color[] varit2 = varit.toArray(new Color[koko]);
         JPanel taulukko = new JPanel(new GridLayout(0, 1));
@@ -220,14 +249,23 @@ public class Kayttoliittyma {
         return frame;
     }
 
-    public void variklikkaus(Color vari) {
+    public void variKlikkaus(Color vari) {
+        valittuvari = vari;
 
+    }
+
+    public Color haeValittuvari() {
+        return valittuvari;
     }
 
     public void paivita() {
 
         piirto.repaint();
 
+    }
+
+    public Container haeContainer(JFrame frame) {
+        return frame.getContentPane();
     }
 
 }

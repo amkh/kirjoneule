@@ -21,19 +21,18 @@ public class HakemistoPaneeli extends JPanel {
     String valittumalli;
     Kayttoliittyma kayttis;
 
-    
-
     public HakemistoPaneeli(Kayttoliittyma kayttis) {
-        this.kayttis=kayttis;
-        this.hakemisto=kayttis.hakemisto;
+        this.kayttis = kayttis;
+        this.hakemisto = kayttis.hakemisto;
 
         setLayout(new GridLayout(0, 1));
 
         JLabel pyynto = new JLabel("Valitse haluamasi malli");
 
         add(pyynto);
+        setBackground(Color.PINK);
 
-        for (int i = 0; i < hakemisto.koko()+1; i++) {
+        for (int i = 0; i < hakemisto.koko(); i++) {
             malli = new JRadioButton(hakemisto.haeIndeksilla(i).nimi());
             malli.setBackground(Color.PINK);
             add(malli);
@@ -44,6 +43,7 @@ public class HakemistoPaneeli extends JPanel {
     public Malli valittuMalli() {
 
         if (malli.isSelected()) {
+            System.out.println(malli.getAction());
             this.valittumalli = malli.getName();
         }
         return hakemisto.haeMalli(valittumalli);

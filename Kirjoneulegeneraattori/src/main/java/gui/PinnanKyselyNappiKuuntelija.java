@@ -27,7 +27,7 @@ public class PinnanKyselyNappiKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        frame.setVisible(false);
+        //frame.setVisible(false);
 
         Integer korkeus1 = Integer.parseInt(kayttis.korkeus.getText());
         Integer leveys1 = Integer.parseInt(kayttis.leveys.getText());
