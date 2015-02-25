@@ -1,5 +1,6 @@
-package gui;
+package gui.Kuuntelijat;
 
+import gui.Kayttoliittyma;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -34,7 +35,7 @@ public class Taulukkokuuntelija implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        System.out.println("a");
+       
         this.valittuvari=kayttis.haeValittuvari();
         for (int i = 0; i < malli.Korkeus(); i++) {
             for (int j = 0; j < malli.Leveys(); j++) {

@@ -1,5 +1,19 @@
 package gui;
 
+import gui.Luokat.HakemistoPaneeli;
+import gui.Luokat.Neulepohjanpiirto;
+import gui.Luokat.Pohjanpiirto;
+import gui.Kuuntelijat.VariLuokka;
+import gui.Kuuntelijat.AlkuNappiKuuntelija;
+import gui.Kuuntelijat.HakemistoNappiKuuntelija;
+import gui.Kuuntelijat.HakemistoPaneeliKuuntelija;
+import gui.Kuuntelijat.KokeileNappiKuuntelija;
+import gui.Kuuntelijat.OkNappiKuuntelija;
+import gui.Kuuntelijat.PinnanKyselyNappiKuuntelija;
+import gui.Kuuntelijat.SuljeNappiKuuntelija;
+import gui.Kuuntelijat.TallennaNappiKuuntelija;
+import gui.Kuuntelijat.Taulukkokuuntelija;
+import gui.Kuuntelijat.VariNappiKuuntelija;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -38,6 +52,7 @@ public class Kayttoliittyma {
     public int korkeusInt;
     public int leveysInt;
     public Color valittuvari;
+    public JLabel viesti;
 
     public Kayttoliittyma() {
 
@@ -45,7 +60,7 @@ public class Kayttoliittyma {
 
     public void run() {
         hakemisto = new Hakemisto();
-        ///TESTI
+        /*
         Set<Color> varit1 = new HashSet<Color>();
         varit1.add(Color.BLACK);
         varit1.add(Color.GRAY);
@@ -59,7 +74,7 @@ public class Kayttoliittyma {
         malli2.vaihdaNimi("Malli2");
         hakemisto.lisaaMalli(malli2);
         hakemisto.lisaaMalli(malli1);
-        ////
+        */
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1000, 500));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -140,7 +155,7 @@ public class Kayttoliittyma {
      */
 
     public void luoKomponentitMallinTeko(Container c, Malli malli) {
-
+        
         c.setLayout(new BorderLayout());
 
         JPanel j = new JPanel();
@@ -166,7 +181,7 @@ public class Kayttoliittyma {
 
         piirto = new Pohjanpiirto(malli);
         piirto.addMouseListener(new Taulukkokuuntelija(this, frame, malli));
-        c.add(luoVariTaulukko(malli.varit), BorderLayout.EAST);
+        c.add(luoVariTaulukko(malli.varit()), BorderLayout.EAST);
         c.add(piirto, BorderLayout.CENTER);
         c.add(j, BorderLayout.SOUTH);
         // c.add(suljeNappi, BorderLayout.SOUTH);
@@ -197,7 +212,7 @@ public class Kayttoliittyma {
 
         pinta = new Neulepohjanpiirto(neulepinta);
         c.add(pinta, BorderLayout.CENTER);
-        c.setBackground(Color.PINK);
+        
     }
 
     /*
@@ -218,6 +233,9 @@ public class Kayttoliittyma {
         leveys = new JTextField();
         vasen.add(leveys);
         vasen.setBackground(Color.PINK);
+        
+        viesti =new JLabel();
+        vasen.add(viesti);
 
         return vasen;
 
@@ -256,6 +274,13 @@ public class Kayttoliittyma {
 
     public Color haeValittuvari() {
         return valittuvari;
+    }
+    
+    public void viestiMuutos(String viesti){
+        this.viesti.setText(viesti);
+    }
+    public JLabel viesti(){
+        return viesti;
     }
 
     public void paivita() {

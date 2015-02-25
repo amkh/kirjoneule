@@ -63,7 +63,12 @@ public class MalliTest {
     }
 
     @Test
-    public void testHae() {
+    public void testHaeVarit() {
+        HashSet<Color> varit1= new HashSet<Color>();
+        varit1.add(Color.WHITE);
+        varit1.add(Color.BLUE);
+        varit1.add(Color.BLACK);
+        assertEquals(varit1, malli.varit());
    
     }
     

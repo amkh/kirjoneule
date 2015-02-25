@@ -1,4 +1,4 @@
-package gui;
+package gui.Luokat;
 
 import java.awt.Color;
 import java.awt.Graphics;

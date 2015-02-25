@@ -1,5 +1,6 @@
-package gui;
+package gui.Luokat;
 
+import gui.Kayttoliittyma;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.HashSet;

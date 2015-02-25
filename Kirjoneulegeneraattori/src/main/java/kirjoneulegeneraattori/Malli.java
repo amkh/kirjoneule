@@ -133,6 +133,13 @@ public class Malli {
             pohja.hae(n, m).vaihdaVari(vari);
         }
     }
+    /**
+     * Metodi palauttaa koko värilistan.
+     * @return  värit
+     */
+    public Set<Color> varit(){
+        return varit;
+    }
 
 
 }

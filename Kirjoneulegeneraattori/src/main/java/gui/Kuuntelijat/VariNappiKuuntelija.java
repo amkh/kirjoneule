@@ -1,5 +1,6 @@
-package gui;
+package gui.Kuuntelijat;
 
+import gui.Kayttoliittyma;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,7 +50,7 @@ public class VariNappiKuuntelija implements ActionListener {
                if(apu.equals(Color.GRAY.toString())){
         valittuvari = Color.GRAY;
         }
-        System.out.println(valittuvari);
+        //System.out.println(valittuvari);
         kayttis.variKlikkaus(valittuvari);
 
     }

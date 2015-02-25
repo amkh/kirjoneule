@@ -1,22 +1,28 @@
-package gui;
+package gui.Kuuntelijat;
 
+import gui.Kayttoliittyma;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import kirjoneulegeneraattori.Malli;
 
 /*
- Tämä nappikuuntelija luo hakemistosivun.
+ Tämä kuuntelija avaa sivun, jolla kysytään neulepinnan kokoa.
  */
-public class HakemistoNappiKuuntelija implements ActionListener {
+public class KokeileNappiKuuntelija implements ActionListener {
 
     private Kayttoliittyma kayttis;
     private JFrame frame;
+    public Malli malli;
 
-    public HakemistoNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame) {
+    public KokeileNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame, Malli malli) {
+
         this.kayttis = kayttis;
         this.frame = frame;
+        this.malli = malli;
+
     }
 
     @Override
@@ -26,8 +32,9 @@ public class HakemistoNappiKuuntelija implements ActionListener {
         frame.setPreferredSize(new Dimension(400, 300));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        kayttis.LuoKomponentitHakemisto(frame.getContentPane());
+        kayttis.luoKomponentitPinnanKysely(frame.getContentPane(), malli);
         frame.pack();
         frame.setVisible(true);
+
     }
 }
