@@ -25,7 +25,7 @@ public class HakemistoPaneeliKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         frame = new JFrame("Kirjoneulegeneraattori");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(1000, 600));
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         malli=kayttis.hakemistopaneeli.valittuMalli();
         kayttis.luoKomponentitMallinTeko(frame.getContentPane(), malli);
