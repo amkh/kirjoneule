@@ -13,3 +13,6 @@
 17.2. Käyttöliittymää 2h
 18.2. Käyttöliittymää 2h
 19.2. Käyttöliittymää ja sekvenssikaavioita 5h
+24.2. Käyttöliittymää 3h
+25.2. Käyttöliittymää ja kuvauksien kirjoittamista 2,5h
+26.2. Käyttöliittymää ja viimeistelytöitä 2h
