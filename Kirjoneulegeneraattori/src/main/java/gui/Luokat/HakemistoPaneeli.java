@@ -42,10 +42,10 @@ public class HakemistoPaneeli extends JPanel {
     }
 
     public Malli valittuMalli() {
-
+        System.out.println("testi");
         if (malli.isSelected()) {
-            System.out.println(malli.getAction());
-            this.valittumalli = malli.getName();
+            System.out.println(malli.getActionCommand());
+            this.valittumalli = malli.getActionCommand();
         }
         return hakemisto.haeMalli(valittumalli);
     }

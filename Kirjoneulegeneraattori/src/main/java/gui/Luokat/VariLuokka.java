@@ -1,4 +1,4 @@
-package gui.Kuuntelijat;
+package gui.Luokat;
 
 import java.awt.Color;
 import java.awt.GridLayout;

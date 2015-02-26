@@ -3,7 +3,7 @@ package gui;
 import gui.Luokat.HakemistoPaneeli;
 import gui.Luokat.Neulepohjanpiirto;
 import gui.Luokat.Pohjanpiirto;
-import gui.Kuuntelijat.VariLuokka;
+import gui.Luokat.VariLuokka;
 import gui.Kuuntelijat.AlkuNappiKuuntelija;
 import gui.Kuuntelijat.HakemistoNappiKuuntelija;
 import gui.Kuuntelijat.HakemistoPaneeliKuuntelija;
@@ -77,7 +77,7 @@ public class Kayttoliittyma {
         */
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1000, 500));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         luoKomponentitAlku(frame.getContentPane());
         frame.pack();
@@ -97,11 +97,11 @@ public class Kayttoliittyma {
 
         JButton uusimalli = new JButton("Uusi malli");
         uusimalli.addActionListener(new AlkuNappiKuuntelija(this, frame));
-        uusimalli.setBackground(Color.white);
+        
 
         JButton hakemisto = new JButton("Hakemisto");
         hakemisto.addActionListener(new HakemistoNappiKuuntelija(this, frame));
-        hakemisto.setBackground(Color.white);
+        
 
         c.add(tervehdys);
         c.add(uusimalli, BorderLayout.WEST);
@@ -112,7 +112,7 @@ public class Kayttoliittyma {
     /*
      Metodi luo hakemistosivun.
      */
-
+ 
     public void LuoKomponentitHakemisto(Container c) {
         c.setLayout(new BorderLayout());
 
@@ -120,11 +120,11 @@ public class Kayttoliittyma {
         JButton okNappi = new JButton("Ok");
         JButton suljeNappi = new JButton("Sulje");
         HakemistoPaneeliKuuntelija h = new HakemistoPaneeliKuuntelija(this, frame);
-        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
         okNappi.addActionListener(h);
         suljeNappi.addActionListener(s);
         c.add(okNappi, BorderLayout.SOUTH);
-        //c.add(suljeNappi, BorderLayout.SOUTH);
+        c.add(suljeNappi, BorderLayout.NORTH);
         c.add(hakemistopaneeli, BorderLayout.CENTER);
         c.setBackground(Color.PINK);
     }
@@ -139,14 +139,14 @@ public class Kayttoliittyma {
 
         JButton okNappi = new JButton("Ok");
         JButton suljeNappi = new JButton("Sulje");
-        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
         OkNappiKuuntelija k = new OkNappiKuuntelija(this, frame);
         okNappi.addActionListener(k);
         suljeNappi.addActionListener(s);
         c.add(kokoPyynto(), BorderLayout.WEST);
         c.add(variluokka, BorderLayout.EAST);
         c.add(okNappi, BorderLayout.SOUTH);
-        // c.add(suljeNappi, BorderLayout.SOUTH);
+        c.add(suljeNappi, BorderLayout.NORTH);
         c.setBackground(Color.PINK);
 
     }
@@ -176,7 +176,7 @@ public class Kayttoliittyma {
         kokeile.addActionListener(k);
 
         JButton suljeNappi = new JButton("Sulje");
-        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this);
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
         suljeNappi.addActionListener(s);
 
         piirto = new Pohjanpiirto(malli);
@@ -195,12 +195,17 @@ public class Kayttoliittyma {
 
     public void luoKomponentitPinnanKysely(Container c, Malli malli) {
         c.setLayout(new BorderLayout());
+        
+         JButton suljeNappi = new JButton("Sulje");
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
+        suljeNappi.addActionListener(s);
 
         JButton okNappi = new JButton("Ok");
         PinnanKyselyNappiKuuntelija p = new PinnanKyselyNappiKuuntelija(this, frame, malli);
         okNappi.addActionListener(p);
         c.add(kokoPyynto(), BorderLayout.CENTER);
         c.add(okNappi, BorderLayout.SOUTH);
+        c.add(suljeNappi, BorderLayout.NORTH);
 
     }
     /*
@@ -209,10 +214,14 @@ public class Kayttoliittyma {
 
     public void luoKomponentitNeulepinta(Container c, Neulepinta neulepinta) {
         c.setLayout(new BorderLayout());
-
+        
+        JButton suljeNappi = new JButton("Sulje");
+        SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
+        suljeNappi.addActionListener(s);
+        
         pinta = new Neulepohjanpiirto(neulepinta);
         c.add(pinta, BorderLayout.CENTER);
-        
+        c.add(suljeNappi, BorderLayout.NORTH);
     }
 
     /*
@@ -262,6 +271,7 @@ public class Kayttoliittyma {
         return taulukko;
 
     }
+    
 
     public JFrame haeFrame() {
         return frame;
@@ -292,5 +302,10 @@ public class Kayttoliittyma {
     public Container haeContainer(JFrame frame) {
         return frame.getContentPane();
     }
+    public JFrame haeFrameContainerilla(Container c){
+        return frame;
+    }
+    
+    
 
 }

@@ -23,9 +23,9 @@ public class Neulepohjanpiirto extends JPanel {
             for (int j = 0; j < pinta.leveys(); j++) {
                 g.setColor(pinta.hae(i, j).vari());
 
-                g.fillRect(20 * (j + 1), 20 * (i + 1), 20, 20);
+                g.fillRect(10 * (j + 1), 10* (i + 1), 10, 10);
                 g.setColor(Color.BLACK);
-                g.drawRect(20 * (j + 1), 20 * (i + 1), 20, 20);
+                g.drawRect(10 * (j + 1), 10 * (i + 1), 10, 10);
 
             }
 

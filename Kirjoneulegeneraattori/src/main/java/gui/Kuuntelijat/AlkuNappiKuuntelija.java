@@ -30,7 +30,7 @@ public class AlkuNappiKuuntelija implements ActionListener {
         if (ae.getActionCommand().equals("Uusi malli")) {
             frame = new JFrame("Kirjoneulegeneraattori");
             frame.setPreferredSize(new Dimension(400, 300));
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
             kayttis.LuoKomponentitKyselyt(frame.getContentPane());
             frame.pack();
@@ -39,7 +39,7 @@ public class AlkuNappiKuuntelija implements ActionListener {
         if (ae.getActionCommand().equals("Hakemisto")) {
             frame = new JFrame("Kirjoneulegeneraattori");
             frame.setPreferredSize(new Dimension(400, 300));
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
             kayttis.LuoKomponentitHakemisto(frame.getContentPane());
             frame.pack();

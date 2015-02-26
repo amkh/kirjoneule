@@ -30,7 +30,7 @@ public class KokeileNappiKuuntelija implements ActionListener {
 
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(400, 300));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         kayttis.luoKomponentitPinnanKysely(frame.getContentPane(), malli);
         frame.pack();

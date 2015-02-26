@@ -11,14 +11,15 @@ import javax.swing.JFrame;
 public class SuljeNappiKuuntelija implements ActionListener{
     private Kayttoliittyma kayttis;
     private JFrame frame;
-    public SuljeNappiKuuntelija(Kayttoliittyma kayttis){
+    public SuljeNappiKuuntelija(Kayttoliittyma kayttis, JFrame frame){
         this.kayttis=kayttis;
-        this.frame=kayttis.haeFrame();
+        this.frame=frame;
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       frame.setVisible(false);
+      
+        frame.dispose();
     }
 }

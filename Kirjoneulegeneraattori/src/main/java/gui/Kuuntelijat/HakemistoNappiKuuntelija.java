@@ -25,7 +25,7 @@ public class HakemistoNappiKuuntelija implements ActionListener {
 
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(400, 300));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         kayttis.LuoKomponentitHakemisto(frame.getContentPane());
         frame.pack();

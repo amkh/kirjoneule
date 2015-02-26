@@ -42,31 +42,29 @@ public class OkNappiKuuntelija implements ActionListener {
         
     if (korkeus1==(int)korkeus1 && leveys1==(int)leveys1 && korkeus1>0 && leveys1>0
             && korkeus1<21 && leveys1<21 && varit.size()>0){
-        //frame.setVisible(false);
+        
         Malli malli = new Malli(korkeus1, leveys1, kayttis.variluokka.varit());
 
         frame = new JFrame("Kirjoneulegeneraattori");
-        frame.setPreferredSize(new Dimension(1000, 800));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(1000, 600));
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         kayttis.luoKomponentitMallinTeko(frame.getContentPane(), malli);
         frame.pack();
         frame.setVisible(true);
     }
     else{
-         ///???? kaksi riviä
-      kayttis.viestiMuutos("Anna kokonaisluku väliltä 1-20 \n"
-             // + "ja valitse ainakin yksi väri"
-      );
+        
+      kayttis.viestiMuutos("<html>Anna kokonaisluku väliltä 1-20 <br> ja valitse ainakin yksi väri.<html>" );
      
       
       
       
     }
-      System.out.println("Anna kokonaisluku 1-20:");
+     
       }catch(Exception e){
-          kayttis.viestiMuutos("Anna kokonaisluku 1-20:");
-          //System.out.println("Virhe mallinluonnissa");
+          kayttis.viestiMuutos("<html>Anna kokonaisluku väliltä 1-20 <br> ja valitse ainakin yksi väri.<html>");
+          
 }
 
        
