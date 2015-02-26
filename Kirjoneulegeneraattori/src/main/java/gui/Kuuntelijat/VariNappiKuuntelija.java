@@ -20,35 +20,33 @@ public class VariNappiKuuntelija implements ActionListener {
         this.frame = frame;
     }
 
-   
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String apu = e.getActionCommand();
-       
-        if(apu.equals(Color.BLACK.toString())){
-        valittuvari = Color.BLACK;
+
+        if (apu.equals(Color.BLACK.toString())) {
+            valittuvari = Color.BLACK;
         }
-         if(apu.equals(Color.WHITE.toString())){
-        valittuvari = Color.WHITE;
+        if (apu.equals(Color.WHITE.toString())) {
+            valittuvari = Color.WHITE;
         }
-          if(apu.equals(Color.GREEN.toString())){
-        valittuvari = Color.GREEN;
+        if (apu.equals(Color.GREEN.toString())) {
+            valittuvari = Color.GREEN;
         }
-           if(apu.equals(Color.BLUE.toString())){
-        valittuvari = Color.BLUE;
+        if (apu.equals(Color.BLUE.toString())) {
+            valittuvari = Color.BLUE;
         }
-            if(apu.equals(Color.PINK.toString())){
-        valittuvari = Color.PINK;
+        if (apu.equals(Color.PINK.toString())) {
+            valittuvari = Color.PINK;
         }
-             if(apu.equals(Color.RED.toString())){
-        valittuvari = Color.RED;
+        if (apu.equals(Color.RED.toString())) {
+            valittuvari = Color.RED;
         }
-              if(apu.equals(Color.YELLOW.toString())){
-        valittuvari = Color.YELLOW;
+        if (apu.equals(Color.YELLOW.toString())) {
+            valittuvari = Color.YELLOW;
         }
-               if(apu.equals(Color.GRAY.toString())){
-        valittuvari = Color.GRAY;
+        if (apu.equals(Color.GRAY.toString())) {
+            valittuvari = Color.GRAY;
         }
         //System.out.println(valittuvari);
         kayttis.variKlikkaus(valittuvari);

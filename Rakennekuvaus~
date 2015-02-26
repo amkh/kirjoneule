@@ -1,0 +1,5 @@
+Rakennekuvaus:
+
+Kirjoneulegeneraattorin peruspalikkana toimii Ruutu-olio, joka pitää sisällään yhden yksittäisen silmukan, eli mallipiirroksessa ruudun, värin. Valkoisista Ruutu-olioista koostuvat kaikki Pohja-luokan oliot, jotka ovat pohjimmiltaan kaksiulotteisia taulukoita. Malli syntyy taas Pohjasta, jonka eri Ruudut voivat saada ominaisuudekseen jonkin mallin väreistä. Neulepintakin syntyy Pohjalle toistamalla Mallia halutut määrät monikertoja pysty- ja vaakasuuntaan. Valmiit Mallit voi tallettaa Hakemistoon, joka sekin on yksisarakkeinen Malli-olioista koostuva taulukko.
+
+Käyttöjärjestelmässä yhteen ikkunaan on pyritty laittamaan vain yhden vaiheen syötöt ja valinnat esille - näin nappuloiden määrä ikkunaa kohti ei ole aivan mahdoton. Mallin tarkastelu toimii sekä uuden luonnin että hakemiston kautta samassa ikkunassa, jolloin mahdolliset muokkaukset ja neule-pintakokeilut voidaan toteuttaa samojen toiminnallisuuksien avulla.

@@ -61,20 +61,20 @@ public class Kayttoliittyma {
     public void run() {
         hakemisto = new Hakemisto();
         /*
-        Set<Color> varit1 = new HashSet<Color>();
-        varit1.add(Color.BLACK);
-        varit1.add(Color.GRAY);
-        Set<Color> varit2 = new HashSet<Color>();
-        varit2.add(Color.GREEN);
-        varit2.add(Color.RED);
-        varit2.add(Color.YELLOW);
-        Malli malli1 = new Malli(2, 5, varit1);
-        malli1.vaihdaNimi("Malli1");
-        Malli malli2 = new Malli(3, 10, varit2);
-        malli2.vaihdaNimi("Malli2");
-        hakemisto.lisaaMalli(malli2);
-        hakemisto.lisaaMalli(malli1);
-        */
+         Set<Color> varit1 = new HashSet<Color>();
+         varit1.add(Color.BLACK);
+         varit1.add(Color.GRAY);
+         Set<Color> varit2 = new HashSet<Color>();
+         varit2.add(Color.GREEN);
+         varit2.add(Color.RED);
+         varit2.add(Color.YELLOW);
+         Malli malli1 = new Malli(2, 5, varit1);
+         malli1.vaihdaNimi("Malli1");
+         Malli malli2 = new Malli(3, 10, varit2);
+         malli2.vaihdaNimi("Malli2");
+         hakemisto.lisaaMalli(malli2);
+         hakemisto.lisaaMalli(malli1);
+         */
         frame = new JFrame("Kirjoneulegeneraattori");
         frame.setPreferredSize(new Dimension(1000, 500));
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -97,11 +97,9 @@ public class Kayttoliittyma {
 
         JButton uusimalli = new JButton("Uusi malli");
         uusimalli.addActionListener(new AlkuNappiKuuntelija(this, frame));
-        
 
         JButton hakemisto = new JButton("Hakemisto");
         hakemisto.addActionListener(new HakemistoNappiKuuntelija(this, frame));
-        
 
         c.add(tervehdys);
         c.add(uusimalli, BorderLayout.WEST);
@@ -112,7 +110,7 @@ public class Kayttoliittyma {
     /*
      Metodi luo hakemistosivun.
      */
- 
+
     public void LuoKomponentitHakemisto(Container c) {
         c.setLayout(new BorderLayout());
 
@@ -124,7 +122,7 @@ public class Kayttoliittyma {
         okNappi.addActionListener(h);
         suljeNappi.addActionListener(s);
         c.add(okNappi, BorderLayout.SOUTH);
-        c.add(suljeNappi, BorderLayout.NORTH);
+        // c.add(suljeNappi, BorderLayout.NORTH);
         c.add(hakemistopaneeli, BorderLayout.CENTER);
         c.setBackground(Color.PINK);
     }
@@ -146,7 +144,7 @@ public class Kayttoliittyma {
         c.add(kokoPyynto(), BorderLayout.WEST);
         c.add(variluokka, BorderLayout.EAST);
         c.add(okNappi, BorderLayout.SOUTH);
-        c.add(suljeNappi, BorderLayout.NORTH);
+        //c.add(suljeNappi, BorderLayout.NORTH);
         c.setBackground(Color.PINK);
 
     }
@@ -155,7 +153,7 @@ public class Kayttoliittyma {
      */
 
     public void luoKomponentitMallinTeko(Container c, Malli malli) {
-        
+
         c.setLayout(new BorderLayout());
 
         JPanel j = new JPanel();
@@ -195,8 +193,8 @@ public class Kayttoliittyma {
 
     public void luoKomponentitPinnanKysely(Container c, Malli malli) {
         c.setLayout(new BorderLayout());
-        
-         JButton suljeNappi = new JButton("Sulje");
+
+        JButton suljeNappi = new JButton("Sulje");
         SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
         suljeNappi.addActionListener(s);
 
@@ -205,7 +203,7 @@ public class Kayttoliittyma {
         okNappi.addActionListener(p);
         c.add(kokoPyynto(), BorderLayout.CENTER);
         c.add(okNappi, BorderLayout.SOUTH);
-        c.add(suljeNappi, BorderLayout.NORTH);
+        // c.add(suljeNappi, BorderLayout.NORTH);
 
     }
     /*
@@ -214,14 +212,14 @@ public class Kayttoliittyma {
 
     public void luoKomponentitNeulepinta(Container c, Neulepinta neulepinta) {
         c.setLayout(new BorderLayout());
-        
+
         JButton suljeNappi = new JButton("Sulje");
         SuljeNappiKuuntelija s = new SuljeNappiKuuntelija(this, frame);
         suljeNappi.addActionListener(s);
-        
+
         pinta = new Neulepohjanpiirto(neulepinta);
         c.add(pinta, BorderLayout.CENTER);
-        c.add(suljeNappi, BorderLayout.NORTH);
+        //c.add(suljeNappi, BorderLayout.NORTH);
     }
 
     /*
@@ -242,8 +240,8 @@ public class Kayttoliittyma {
         leveys = new JTextField();
         vasen.add(leveys);
         vasen.setBackground(Color.PINK);
-        
-        viesti =new JLabel();
+
+        viesti = new JLabel();
         vasen.add(viesti);
 
         return vasen;
@@ -271,7 +269,6 @@ public class Kayttoliittyma {
         return taulukko;
 
     }
-    
 
     public JFrame haeFrame() {
         return frame;
@@ -285,11 +282,12 @@ public class Kayttoliittyma {
     public Color haeValittuvari() {
         return valittuvari;
     }
-    
-    public void viestiMuutos(String viesti){
+
+    public void viestiMuutos(String viesti) {
         this.viesti.setText(viesti);
     }
-    public JLabel viesti(){
+
+    public JLabel viesti() {
         return viesti;
     }
 
@@ -302,10 +300,9 @@ public class Kayttoliittyma {
     public Container haeContainer(JFrame frame) {
         return frame.getContentPane();
     }
-    public JFrame haeFrameContainerilla(Container c){
+
+    public JFrame haeFrameContainerilla(Container c) {
         return frame;
     }
-    
-    
 
 }

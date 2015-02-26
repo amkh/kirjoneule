@@ -29,7 +29,7 @@ public class PinnanKyselyNappiKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+
         int mk = malli.Korkeus();
         int ml = malli.Leveys();
         try {
